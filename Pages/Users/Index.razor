@@ -2,6 +2,13 @@
 @attribute [Authorize]
 @inject IAccountService AccountService
 
+@using BlazorApp.Services
+@using BlazorApp.Models.Account
+@using BlazorApp.Models
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+
 <h1>Users</h1>
 <NavLink href="users/add" class="btn btn-sm btn-success mb-2">Add User</NavLink>
 <table class="table table-striped">

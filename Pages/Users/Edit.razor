@@ -4,6 +4,12 @@
 @inject IAccountService AccountService
 @inject NavigationManager NavigationManager
 
+@using BlazorApp.Services
+@using BlazorApp.Models.Account
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+
 <h1>Edit User</h1>
 @if (model != null)
 {

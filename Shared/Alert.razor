@@ -2,6 +2,10 @@
 @inject IAlertService AlertService
 @inject NavigationManager NavigationManager
 
+@using BlazorApp.Services
+@using BlazorApp.Models
+@using Microsoft.AspNetCore.Components.Routing
+
 @foreach (var alert in alerts)
 {
     <div class="@CssClass(alert)">

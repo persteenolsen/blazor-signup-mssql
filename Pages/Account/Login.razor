@@ -1,11 +1,19 @@
 ﻿@page "/account/login"
+
+
+@using BlazorApp.Services
+@using BlazorApp.Models.Account
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+
+
 @inject IAccountService AccountService
 @inject IAlertService AlertService
 @inject NavigationManager NavigationManager
 
 <div class="card">
     <div class="card-body">
-    <b>Last updated: </b>14-03-2024<br /><br />
+    <b>Last updated: </b>12-03-2024<br /><br />
     </div>
 
     <h4 class="card-header">Login</h4>
@@ -47,8 +55,18 @@
         try
         {
             await AccountService.Login(model);
-            var returnUrl = NavigationManager.QueryString("returnUrl") ?? "";
-            NavigationManager.NavigateTo(returnUrl);
+            
+            // New code !!
+            var returnUrl = NavigationManager.GetUriWithQueryParameter("returnUrl", false);        
+            if( returnUrl == "returnUrl")
+                NavigationManager.NavigateTo(returnUrl);
+            else
+                NavigationManager.NavigateTo("");
+
+            // Old code
+            // var returnUrl = NavigationManager.QueryString("returnUrl") ?? "";
+            // NavigationManager.NavigateTo(returnUrl);
+
         }
         catch (Exception ex)
         {
